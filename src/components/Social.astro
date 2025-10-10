@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Social {
+  platform: string;
+  link: string;
+}
+
+const socials: Social[] = [
+  { platform: "Facebook", link: "https://www.facebook.com/rs.zeroday" },
+  { platform: "X", link: "https://x.com/regded_" },
+  { platform: "LinkedIn", link: "https://www.linkedin.com/in/rywils/" },
+  { platform: "Bluesky", link: "https://bsky.app/" },
+  { platform: "Mastodon", link: "https://mastodon.social/@rywils" },
+  { platform: "Email", link: "mailto:ryan@ryanwilson.io" }
+];
+
+// Build the JSX array cleanly: one element per item, proper return
+
+---
+{socials.map ((s) => (
+<div>
+    <a href={s.link}
+    <Icon name={s.platform} />
+
+</div>
+))}
+
+
+
+

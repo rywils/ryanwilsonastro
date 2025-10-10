@@ -1,0 +1,40 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+<!-- <script>
+     // Example: theme state is on <html> as either "dark" or "light"
+const isDark = document.documentElement.classList.contains("dark");
+
+// Select elements with class "glasspane"
+const panes = document.querySelectorAll(".glasspane");
+
+panes.forEach((pane) => {
+  // Remove both variants first to avoid duplicates
+  pane.classList.remove("glasspanedark", "glasspanewhite");
+  // Add the correct variant
+  pane.classList.add(isDark ? "glasspanedark" : "glasspanewhite");
+});
+
+// Optional: if your theme toggler changes the class dynamically, observe it:
+const observer = new MutationObserver(() => {
+  const dark = document.documentElement.classList.contains("dark");
+  panes.forEach((pane) => {
+    pane.classList.toggle("glasspanedark", dark);
+    pane.classList.toggle("glasspanewhite", !dark);
+  });
+});
+
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+    </script> -->
+
+    <div>
+
+        <BaseLayout>
+        <section>
+            <h1 class="w-full items-center justify-center text-3xl">Projects</h1>
+        </section>
+        </BaseLayout>
+ s
+
+    </div>

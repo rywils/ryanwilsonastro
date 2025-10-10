@@ -1,0 +1,90 @@
+---
+import { Badge } from "./ui/Badge";
+import { Card } from "@/components/ui/card";
+
+
+---
+
+<script>
+    // Example: theme state is on <html> as either "dark" or "light"
+const isDark = document.documentElement.classList.contains("dark");
+
+// Select elements with class "glasspane"
+const panes = document.querySelectorAll(".glasspane");
+
+panes.forEach((pane) => {
+  // Remove both variants first to avoid duplicates
+  pane.classList.remove("glasspanedark", "glasspanewhite");
+  // Add the correct variant
+  pane.classList.add(isDark ? "glasspanedark" : "glasspanewhite");
+});
+
+// Optional: if your theme toggler changes the class dynamically, observe it:
+const observer = new MutationObserver(() => {
+  const dark = document.documentElement.classList.contains("dark");
+  panes.forEach((pane) => {
+    pane.classList.toggle("glasspanedark", dark);
+    pane.classList.toggle("glasspanewhite", !dark);
+  });
+});
+
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+</script>
+<section class="flex justify-center items-center flex-col mt-6 p-6">
+<h2 class="text-5xl pb-6">Skills</h2>
+<Badge >Frameworks / Languages / Systems / Cloud / Networking</Badge>
+<!-- <div class="max-w-200 p-8 justify-center flex-wrap glasspane flex gap-6 items-center mt-4"> -->
+<Card className="max-w-200 flex flex-row flex-wrap gap-6 items-center justify-center p-6">
+    <img src="/nextjs.svg" alt="Nextjs" class="border-2 rounded-full object-fit size-12" />
+    <img src="/figma.svg" alt="figma" class="border-2 rounded-full object-fit size-12" >
+    <img src="/React-icon.svg" alt="react" class="border-2 rounded-full object-fit size-12" >
+    <img src="/wordpress.svg" alt="wordpress" class="border-2 rounded-full object-fit size-12" >
+    <img src="/webflow.svg" alt="webflow" class="border-2 rounded-full object-fit size-12" >
+
+    <img src="/favicon.svg" alt="Astrojs" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Microsoft_.NET_logo.svg" alt="dotnet" class="border-2 rounded-full object-fit size-12">
+    <img src="/C_Programming_Language.svg" alt="C Programming" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Typescript_logo_2020.svg" alt="Typescript" class="border-2 rounded-full object-fit  size-12" >
+    <img src="/tailwindcss.svg" alt="Tailwind" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Unofficial_JavaScript_logo_2.svg" alt="Javascript" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Logo_C_sharp.svg" alt="C#" class="border-2 rounded-full object-fit size-12" >
+    <img src="/python.svg" alt="Python" class="border-2 rounded-full object-fit size-12" >
+    <img src="/zig.svg" alt="zig" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Original_Ferris.svg" alt="Rust" class="border-2 rounded-full object-fit size-12" >
+    <img src="/microsoft.svg" alt="Microsoft Windows" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Tux.svg" alt="Linux" class="border-2 rounded-full object-fit size-12" >
+    <!-- <img src="/kalilinux.svg" alt="Kali Linux" class="" width={60} height={60} > -->
+    <img src="/kalilinux.svg" alt="Kali Linux" class="border-2 rounded-full object-fit size-12">
+    <img src="/Cisco_logo.svg" alt="Cisco Networking" class="border-2 rounded-full object-fit size-12">
+    <img src="/Fortinet_logo.svg" alt="Fortinet" class="border-2 rounded-full object-fit size-12" >
+    <img src="/aws.svg" alt="AWS" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Azure.svg" alt="Microsoft Azure" class="border-2 rounded-full object-fit size-12" >
+    <img src="/Vmware.svg" alt="VMware" class="border-2 rounded-full object-fill size-12">
+    <img src="/terraform-svgrepo-com.svg" alt="Terraform"  class="border-2 rounded-full object-fit size-12">
+    <img src="/git.svg" alt="git" class="border-2 rounded-full object-fit size-12">
+    <img src="/akamai-svgrepo-com.svg" alt="Akami" class="border-2 rounded-full object-fit size-12">
+    <img src="/ansible-svgrepo-com.svg" alt="Ansible" class="border-2 rounded-full object-fit size-12">
+        <img src="/docker.svg" alt="docker" class="border-2 rounded-full object-fit size-12" >
+        <img src="/kubernetes.svg" alt="kubernetes" class="border-2 rounded-full object-fit size-12" >
+        <img src="/gcp.svg" alt="docker" class="border-2 rounded-full object-fit size-12" >
+        <img src="/github.svg" alt="docker" class="border-2 rounded-full object-fit size-12" >
+
+    </Card>
+<!-- </div> -->
+
+</section>
+
+<!-- <img src="/Cisco_logo.svg" alt="Cisco Networking" width={70} height={70} class="">
+    <img src="/Fortinet_logo.svg" alt="Fortinet" class="" width={100} height={100} >
+    <img src="/aws.svg" alt="AWS" class="size-12" >
+    <img src="/Azure.svg" alt="Microsoft Azure" class="size-12" >
+    <img src="/Vmware.svg" alt="VMware" width={100} height={100} class="pt-2">
+    <img src="/terraform-svgrepo-com.svg" alt="Terraform" width={100} height={100} class="pt-2">
+    <img src="/git.svg" alt="git" width={100} height={100} class="pt-2">
+    <img src="/akamai-svgrepo-com.svg" alt="Akami" width={100} height={100} class="pt-2">
+    <img src="/ansible-svgrepo-com.svg" alt="Ansible" width={60} height={60} class="pt-2">
+        <img src="/docker.svg" alt="docker" class="size-16" >
+        <img src="/kubernetes.svg" alt="kubernetes" class="size-16" >
+        <img src="/gcp.svg" alt="docker" class="size-16" >
+        <img src="/github.svg" alt="docker" class="size-16" > -->

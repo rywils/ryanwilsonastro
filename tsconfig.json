@@ -1,8 +1,27 @@
+// tsconfig.json
 {
+  
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
   "compilerOptions": {
-    "strictNullChecks": true
-  }
+    "moduleResolution": "bundler",        // or "nodenext" if you prefer
+    "module": "ESNext",
+    "target": "ES2020",
+
+    // Your React setup
+    "jsx": "react-jsx",
+
+    // Your aliases
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // Astro/TS quality-of-life
+    "types": ["astro/client"],
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": true
+  },
+  
+  "include": ["src", "env.d.ts", "astro.config.*"]
 }

@@ -1,0 +1,139 @@
+---
+import { ExternalLink } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+import { Button, buttonVariants } from "@/components/ui/Button";
+
+import { GridPattern } from "./ui/grid-pattern";
+
+import '../../public/me.png'
+import '../../public/fabriclight.webp'
+import { FacebookIcon, Icon } from "@lucide/astro";
+// import { ShimmerButton } from "./ui/shimmer-button";
+---
+<script type="module">
+// Example: theme state is on <html> as either "dark" or "light"
+const isDark = document.documentElement.classList.contains("dark");
+
+// Select elements with class "glasspane"
+const panes = document.querySelectorAll(".glasspane");
+
+panes.forEach((pane) => {
+  // Remove both variants first to avoid duplicates
+  pane.classList.remove("glasspanedark", "glasspanewhite");
+  // Add the correct variant
+  pane.classList.add(isDark ? "glasspanedark" : "glasspanewhite");
+});
+
+// Optional: if your theme toggler changes the class dynamically, observe it:
+const observer = new MutationObserver(() => {
+  const dark = document.documentElement.classList.contains("dark");
+  panes.forEach((pane) => {
+    pane.classList.toggle("glasspanedark", dark);
+    pane.classList.toggle("glasspanewhite", !dark);
+  });
+});
+
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+</script>
+    <section class="relative overflow-hidden mb-12 w-full shadow-lg  mt-16 py-16 border">
+      
+      <div class="relative">
+        <!-- <div class="mt-12 flex flex-col items-center"> -->
+          <div class="flex flex-col items-center gap-6 text-center comeback w-full ">
+            
+
+          
+                <img src="/me.png" alt="Picture of me" class="rounded-full w-40 h-40  flex flex-col border-rainbow"/>
+
+                <h1 class="mb-6 pt-2 text-2xl font-bold tracking-tight text-pretty lg:text-5xl">Ryan Wilson</h1>
+                <div class="socialicons ">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" class=""/></svg>
+                </div>
+              <p class="mx-auto max-w-3xl text-muted-foreground lg:text-xl">
+                My name is Ryan, and I like to build stuff. My professional experience includes Network Adminsitration & Cybersecurity, and eventually I drifted off into web development which was a very addicting rabbithole. As a result, I've gained a lot of versitile skills over the years in a lot of different areas. Here is where I can let my mind flow and share some tips, tricks, and ideas. Hopefully you find something useful!
+              </p>
+              <div class="mt-6 flex justify-center gap-3">
+              <Button className="shadow-sm transition-shadow hover:shadow">
+                Download My Resume!{" "}
+                <ExternalLink />
+              </Button>
+            </div>
+
+              <section class="mt-2 flex flex-col items-center gap-2">
+              <p class="font-medium text-muted-foreground lg:text-left">
+                This website was built on
+              </p>
+              <div class="flex flex-wrap items-center justify-center gap-4">
+                
+                <a
+                  href="#"
+                  class={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "group flex aspect-square h-12 items-center justify-center p-0",
+                  )}
+                >
+                  <img
+                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/typescript-icon.svg"
+                    alt="TypeScript logo"
+                    class="h-6 saturate-0 transition-all group-hover:saturate-100"
+                  />
+                </a>
+
+                <a
+                  href="#"
+                  class={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "group flex aspect-square h-12 items-center justify-center p-0",
+                  )}
+                >
+                  <img
+                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/nextjs-icon.svg"
+                    alt="Astro logo"
+                    class="h-6 saturate-0 transition-all group-hover:saturate-100"
+                  />
+                </a>
+
+                <a
+                  href="#"
+                  class={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "group flex aspect-square h-12 items-center justify-center p-0",
+                  )}
+                >
+                  <img
+                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/react-icon.svg"
+                    alt="React logo"
+                    class="h-6 saturate-0 transition-all group-hover:saturate-100"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "group flex aspect-square h-12 items-center justify-center p-0",
+                  )}
+                >
+                  <img
+                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/tailwind-icon.svg"
+                    alt="Tailwind CSS logo"
+                    class="h-6 saturate-0 transition-all group-hover:saturate-100"
+                  />
+                </a>
+
+              </div>
+            </section>
+            
+
+          
+        <!-- </div> -->
+      </div>
+      
+      </div>
+      
+    
+    </section>
+  
+

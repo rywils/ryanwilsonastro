@@ -1,0 +1,90 @@
+---
+import { Badge } from "@/components/ui/Badge"
+import Social from "./Social.astro";
+interface Post {
+  id: string;
+  title: string;
+  summary: string;
+  label: string;
+  author: string;
+  published: string;
+  url: string;
+  image: string;
+}
+
+interface RecentPostsCard {
+  tagline?: string;
+  heading?: string;
+  description?: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  posts?: Post[];
+}
+
+const props = Astro.props as RecentPostsCard;
+const {
+  posts = [
+    {
+      id: "post-1",
+      title: "Getting Started with shadcn/ui Components",
+      summary:
+        "Learn how to quickly integrate and customize shadcn/ui components in your Next.js projects. We'll cover installation, theming, and best practices for building modern interfaces.",
+      label: "Tutorial",
+      author: "Sarah Chen",
+      published: "1 Jan 2024",
+      url: "https://shadcnblocks.com",
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    },
+    {
+      id: "post-2",
+      title: "Building Accessible Web Applications",
+      summary:
+        "Explore how to create inclusive web experiences using shadcn/ui's accessible components. Discover practical tips for implementing ARIA labels, keyboard navigation, and semantic HTML.",
+      label: "Accessibility",
+      author: "Marcus Rodriguez",
+      published: "1 Jan 2024",
+      url: "https://shadcnblocks.com",
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    },
+    {
+      id: "post-3",
+      title: "Modern Design Systems with Tailwind CSS",
+      summary:
+        "Dive into creating scalable design systems using Tailwind CSS and shadcn/ui. Learn how to maintain consistency while building flexible and maintainable component libraries.",
+      label: "Design Systems",
+      author: "Emma Thompson",
+      published: "1 Jan 2024",
+      url: "https://shadcnblocks.com",
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-1.svg",
+    },
+  ],
+} = props;
+
+const blogPosts = await import.meta.glob('./blog/*.md', { eager: true });
+
+---
+
+<div class="flex flex-col gap-6 w-full mt-12 bg-background border">
+  {posts.map((post) => (
+    <div class="p-2 border-2 gap-4 flex w-190 h-50">
+      <div class="image_area border w-80">
+        <img src={post.image} alt={post.title} class="object-cover w-full h-full" />
+      </div>
+      <div class="flex flex-col gap-4 mt-12 justify-center w-full">
+        <div class="text-center justify-center font-bold">{post.title}</div>
+        {post.summary}
+        <div class="flex h-full items-center justify-between mb-4">
+            <Badge variant="secondary">{post.label}</Badge>
+        
+        <div class="text-end items-end">
+            
+          <a href={post.url} target="_blank" rel="noopener noreferrer">
+            <Badge>Read More</Badge>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+  <Social />
+</div>

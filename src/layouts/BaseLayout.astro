@@ -1,0 +1,47 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import HeadSEO from "@/components/HeadSEO.astro";
+import '@fontsource-variable/roboto';
+
+import '../../public/fabriclight.webp';
+import Hero from "@/components/Hero.astro";
+import HomeBlog from "@/components/HomeBlog.astro";
+
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: URL;
+  location?: string;
+}
+
+const { title, description, ogImage, location } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth-font">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <HeadSEO title={title} description={description} ogImage={ogImage} location={location}/>
+  </head>
+  <body class="min-h-screen antialiased flex flex-col  justify-center items-center bg-gradient-to-b from-[#151626] to-[#111]">
+
+      <Header />
+      <main class="flex flex-col justify-center items-center max-w-[70%]">
+        <slot />
+         </main>
+      <Footer />
+
+  </body>
+</html>
+
+<style>
+  body {
+  font-family: 'Roboto Variable', sans-serif;
+}
+</style>
+
+
+ <!-- <body class="min-h-screen antialiased flex flex-col  justify-center items-center dark:bg-[url(../../public/micro_carbon.png)]"></body> -->
